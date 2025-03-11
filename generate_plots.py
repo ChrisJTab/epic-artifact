@@ -29,34 +29,38 @@ def tpcc_throughput():
     gacco_df['database'] = 'gacco'
     print(gacco_df)
 
-    caracal_df = pd.read_csv(f"{input_path}/caracal/tpcc/caracal_tpcc.csv")
-    caracal_df = caracal_df[['num_warehouses', 'throughput']]
-    caracal_df['database'] = 'caracal'
-    print(caracal_df)
+    # caracal_df = pd.read_csv(f"{input_path}/caracal/tpcc/caracal_tpcc.csv")
+    # caracal_df = caracal_df[['num_warehouses', 'throughput']]
+    # caracal_df['database'] = 'caracal'
+    # print(caracal_df)
 
-    osto_df = pd.read_csv(f"{input_path}/sto/tpcc_default.csv")
-    osto_df = osto_df[['num_warehouses', 'throughput']]
-    osto_df['database'] = 'osto'
-    print(osto_df)
+    # osto_df = pd.read_csv(f"{input_path}/sto/tpcc_default.csv")
+    # osto_df = osto_df[['num_warehouses', 'throughput']]
+    # osto_df['database'] = 'osto'
+    # print(osto_df)
 
-    tsto_df = pd.read_csv(f"{input_path}/sto/tpcc_tictoc.csv")
-    tsto_df = tsto_df[['num_warehouses', 'throughput']]
-    tsto_df['database'] = 'tsto'
-    print(tsto_df)
+    # tsto_df = pd.read_csv(f"{input_path}/sto/tpcc_tictoc.csv")
+    # tsto_df = tsto_df[['num_warehouses', 'throughput']]
+    # tsto_df['database'] = 'tsto'
+    # print(tsto_df)
 
-    msto_df = pd.read_csv(f"{input_path}/sto/tpcc_mvcc.csv")
-    msto_df = msto_df[['num_warehouses', 'throughput']]
-    msto_df['database'] = 'msto'
-    print(msto_df)
+    # msto_df = pd.read_csv(f"{input_path}/sto/tpcc_mvcc.csv")
+    # msto_df = msto_df[['num_warehouses', 'throughput']]
+    # msto_df['database'] = 'msto'
+    # print(msto_df)
 
-    df = pd.concat([epic_df, gacco_df, caracal_df, osto_df, tsto_df, msto_df]) 
+    df = pd.concat([epic_df, gacco_df]) 
+    # df = pd.concat([epic_df, gacco_df, caracal_df, osto_df, tsto_df, msto_df]) 
     print(df)
 
-    colors = [color1, color2, color3, color4, color5, color6, color7]
-    hatches = ['////', '----', 'xxxx', 'OOOO', '++++', '....', r'\\\\']
+    colors = [color1, color2]
+    hatches = ['////', '----']
+    # colors = [color1, color2, color3, color4, color5, color6, color7]
+    # hatches = ['////', '----', 'xxxx', 'OOOO', '++++', '....', r'\\\\']
 
     pivot_df = df.pivot(index='num_warehouses', columns='database', values='throughput')
-    pivot_df = pivot_df[['epic', 'gacco', 'osto', 'tsto', 'msto', 'caracal']]
+    pivot_df = pivot_df[['epic', 'gacco']]
+    # pivot_df = pivot_df[['epic', 'gacco', 'osto', 'tsto', 'msto', 'caracal']]
 
     fig, ax = plt.subplots(figsize=(12, 10))
     bars = pivot_df.plot(kind='bar', width=0.8, edgecolor=colors, ax=ax)
@@ -104,34 +108,38 @@ def tpccfull_throughput():
     epic_df['database'] = 'epic'
     print(epic_df)
 
-    caracal_df = pd.read_csv(f"{input_path}/caracal/tpccfull/caracal_tpcc.csv")
-    caracal_df = caracal_df[['num_warehouses', 'throughput']]
-    caracal_df['database'] = 'caracal'
-    print(caracal_df)
+    # caracal_df = pd.read_csv(f"{input_path}/caracal/tpccfull/caracal_tpcc.csv")
+    # caracal_df = caracal_df[['num_warehouses', 'throughput']]
+    # caracal_df['database'] = 'caracal'
+    # print(caracal_df)
 
-    osto_df = pd.read_csv(f"{input_path}/sto/tpccfull_default.csv")
-    osto_df = osto_df[['num_warehouses', 'throughput']]
-    osto_df['database'] = 'osto'
-    print(osto_df)
+    # osto_df = pd.read_csv(f"{input_path}/sto/tpccfull_default.csv")
+    # osto_df = osto_df[['num_warehouses', 'throughput']]
+    # osto_df['database'] = 'osto'
+    # print(osto_df)
 
-    tsto_df = pd.read_csv(f"{input_path}/sto/tpccfull_tictoc.csv")
-    tsto_df = tsto_df[['num_warehouses', 'throughput']]
-    tsto_df['database'] = 'tsto'
-    print(tsto_df)
+    # tsto_df = pd.read_csv(f"{input_path}/sto/tpccfull_tictoc.csv")
+    # tsto_df = tsto_df[['num_warehouses', 'throughput']]
+    # tsto_df['database'] = 'tsto'
+    # print(tsto_df)
 
-    msto_df = pd.read_csv(f"{input_path}/sto/tpccfull_mvcc.csv")
-    msto_df = msto_df[['num_warehouses', 'throughput']]
-    msto_df['database'] = 'msto'
-    print(msto_df)
+    # msto_df = pd.read_csv(f"{input_path}/sto/tpccfull_mvcc.csv")
+    # msto_df = msto_df[['num_warehouses', 'throughput']]
+    # msto_df['database'] = 'msto'
+    # print(msto_df)
 
-    df = pd.concat([epic_df, caracal_df, osto_df, tsto_df, msto_df]) 
+    df = pd.concat([epic_df]) 
+    # df = pd.concat([epic_df, caracal_df, osto_df, tsto_df, msto_df])
     print(df)
 
-    colors = [color1, color3, color4, color5, color6, color7]
-    hatches = ['////', 'xxxx', 'OOOO', '++++', '....', r'\\\\']
+    colors = [color1]
+    hatches = ['////']
+    # colors = [color1, color3, color4, color5, color6, color7]
+    # hatches = ['////', 'xxxx', 'OOOO', '++++', '....', r'\\\\']
 
     pivot_df = df.pivot(index='num_warehouses', columns='database', values='throughput')
-    pivot_df = pivot_df[['epic', 'osto', 'tsto', 'msto', 'caracal']]
+    pivot_df = pivot_df[['epic']]
+    # pivot_df = pivot_df[['epic', 'osto', 'tsto', 'msto', 'caracal']]
 
     fig, ax = plt.subplots(figsize=(12, 10))
     bars = pivot_df.plot(kind='bar', width=0.8, edgecolor=colors, ax=ax)
@@ -174,40 +182,45 @@ def ycsb_throughput():
         gacco_df['index'] = range(1, 9)
         print(gacco_df)
 
-        caracal_df = pd.read_csv(f"{input_path}/caracal/ycsb/caracal_{workload}_full.csv")
-        caracal_df = caracal_df[['alpha', 'throughput']]
-        caracal_df['database'] = 'caracal'
-        caracal_df['index'] = range(1, 9)
-        print(caracal_df)
+        # caracal_df = pd.read_csv(f"{input_path}/caracal/ycsb/caracal_{workload}_full.csv")
+        # caracal_df = caracal_df[['alpha', 'throughput']]
+        # caracal_df['database'] = 'caracal'
+        # caracal_df['index'] = range(1, 9)
+        # print(caracal_df)
 
-        osto_df = pd.read_csv(f"{input_path}/sto/default_{workload}_full.csv")
-        osto_df = osto_df[['alpha', 'throughput']]
-        osto_df['database'] = 'osto'
-        osto_df['index'] = range(1, 9)
-        print(osto_df)
+        # osto_df = pd.read_csv(f"{input_path}/sto/default_{workload}_full.csv")
+        # osto_df = osto_df[['alpha', 'throughput']]
+        # osto_df['database'] = 'osto'
+        # osto_df['index'] = range(1, 9)
+        # print(osto_df)
 
-        tsto_df = pd.read_csv(f"{input_path}/sto/tictoc_{workload}_full.csv")
-        tsto_df = tsto_df[['alpha', 'throughput']]
-        tsto_df['database'] = 'tsto'
-        tsto_df['index'] = range(1, 9)
-        print(tsto_df)
+        # tsto_df = pd.read_csv(f"{input_path}/sto/tictoc_{workload}_full.csv")
+        # tsto_df = tsto_df[['alpha', 'throughput']]
+        # tsto_df['database'] = 'tsto'
+        # tsto_df['index'] = range(1, 9)
+        # print(tsto_df)
 
-        msto_df = pd.read_csv(f"{input_path}/sto/mvcc_{workload}_full.csv")
-        msto_df = msto_df[['alpha', 'throughput']]
-        msto_df['database'] = 'msto'
-        msto_df['index'] = range(1, 9)
-        print(msto_df)
+        # msto_df = pd.read_csv(f"{input_path}/sto/mvcc_{workload}_full.csv")
+        # msto_df = msto_df[['alpha', 'throughput']]
+        # msto_df['database'] = 'msto'
+        # msto_df['index'] = range(1, 9)
+        # print(msto_df)
 
-        df = pd.concat([epic_df, gacco_df, epic_split_df, caracal_df, osto_df, tsto_df, msto_df])
+        df = pd.concat([epic_df, gacco_df, epic_split_df])
+        # df = pd.concat([epic_df, gacco_df, epic_split_df, caracal_df, osto_df, tsto_df, msto_df])
 
-        colors = [color1, color9, color2, color3, color4, color5, color6]
-        markers = ['s', 's', 'd', '*', '2', 'x', 'o']  # Circle, Square, Triangle up, Diamond, Pentagon, Star, Hexagon
-        fillstyles = ['full', 'none', 'none', 'full', 'full', 'full', 'none']  # Various fill styles
+        colors = [color1, color9, color2]
+        markers = ['s', 's', 'd']  # Circle, Square, Triangle up, Diamond, Pentagon, Star, Hexagon
+        fillstyles = ['full', 'none', 'none']  # Various fill styles
+        # colors = [color1, color9, color2, color3, color4, color5, color6]
+        # markers = ['s', 's', 'd', '*', '2', 'x', 'o']  # Circle, Square, Triangle up, Diamond, Pentagon, Star, Hexagon
+        # fillstyles = ['full', 'none', 'none', 'full', 'full', 'full', 'none']  # Various fill styles
         line_cycler = cycler(color=colors) + cycler(marker=markers) + cycler(fillstyle=fillstyles)
 
         # Pivot the DataFrame
         pivot_df = df.pivot(index='index', columns='database', values='throughput')
-        pivot_df = pivot_df[['epic', 'epic+field split', 'gacco', 'osto', 'tsto', 'msto', 'caracal']]
+        # pivot_df = pivot_df[['epic', 'epic+field split', 'gacco', 'osto', 'tsto', 'msto', 'caracal']]
+        pivot_df = pivot_df[['epic', 'epic+field split', 'gacco']]
 
         ax.set_prop_cycle(line_cycler)
         pivot_df.plot(ax=ax)
@@ -323,20 +336,23 @@ def latency():
         gacco_df['database'] = 'gacco'
         print(gacco_df)
 
-        caracal_df = pd.read_csv(f"{input_path}/caracal/{caracal_workload[0]}/caracal_{caracal_workload[1]}_latency.csv")
-        caracal_df = caracal_df[['latency', 'throughput']]
-        caracal_df['database'] = 'caracal'
-        print(caracal_df)
+        # caracal_df = pd.read_csv(f"{input_path}/caracal/{caracal_workload[0]}/caracal_{caracal_workload[1]}_latency.csv")
+        # caracal_df = caracal_df[['latency', 'throughput']]
+        # caracal_df['database'] = 'caracal'
+        # print(caracal_df)
 
-        colors = [color1, color2, color6]
-        markers = ['s', 'd', 'o']  # Circle, Square, Triangle up, Diamond, Pentagon, Star, Hexagon
-        fillstyles = ['full', 'none', 'none']  # Various fill styles
+        # colors = [color1, color2, color6]
+        colors = [color1, color2]
+        # markers = ['s', 'd', 'o']  # Circle, Square, Triangle up, Diamond, Pentagon, Star, Hexagon
+        markers = ['s', 'd']  # Circle, Square, Triangle up, Diamond, Pentagon, Star, Hexagon
+        fillstyles = ['full', 'none']  # Various fill styles
+        # fillstyles = ['full', 'none', 'none']  # Various fill styles
         line_cycler = cycler(color=colors) + cycler(marker=markers) + cycler(fillstyle=fillstyles)
 
         ax.set_prop_cycle(line_cycler)
         ax.plot(epic_df['throughput'], epic_df['latency'], label='epic')
         ax.plot(gacco_df['throughput'], gacco_df['latency'], label='gacco')
-        ax.plot(caracal_df['throughput'], caracal_df['latency'], label='caracal')
+        # ax.plot(caracal_df['throughput'], caracal_df['latency'], label='caracal')
 
         # Customizing x-ticks
         ax.set_title(workload_name)
