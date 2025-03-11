@@ -1,0 +1,3 @@
+[submodule "epic"]
+	path = epic
+	url = git@github.com:ChrisJTab/epic-eval.git
