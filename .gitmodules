@@ -11,3 +11,7 @@
 [submodule "aria"]
 	path = aria
 	url = https://github.com/ShujianQian/aria.git
+[submodule "epic/third_party/cuco"]
+	path = epic/third_party/cuco
+	url = git@github.com:ChrisJTab/cuCollections.git
+	branch = base-c5f94e5
