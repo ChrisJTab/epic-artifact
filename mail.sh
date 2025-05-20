@@ -22,7 +22,7 @@ echo -e "${GREEN}Sending email from $SENDER_EMAIL to $RECEIPIENT_EMAIL${NC}"
 SUBJECT="Epic Artifact Evaluation Finished"
 
 curl --ssl-reqd \
-  --url 'smtps://smtp.gmail.com:465' \
+  --url 'smtp://smtp.gmail.com:587' \
   --user "$SENDER_EMAIL:$SENDER_PASSWORD" \
   --mail-from "$SENDER_EMAIL" \
   --mail-rcpt "$RECEIPIENT_EMAIL" \
