@@ -47,7 +47,7 @@ Please follow the five steps shown below: 1) Setup (virtual machine) server, 2) 
    ```
 1. Clone this repo with submodules.
    ```bash
-   git clone --recursive https://github.com/ShujianQian/epic-artifact.git
+   git clone --recursive https://github.com/ChrisJTab/epic-artifact.git
    ```
 1. Install dependencies.
    ```bash
